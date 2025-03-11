@@ -4,7 +4,7 @@
 int main(){
 
     // Declarando variáveis
-    char estado;
+    char estadoA[3], estadoB[3];
     char codeA[3], codeB[3];
     char cidadeA[20], cidadeB[20];
     unsigned long int populacaoA, populacaoB;
@@ -19,7 +19,7 @@ int main(){
     //Pedidndo para o usuário adicionar as informações da carta 1
     printf("Carta 1\n");
     printf("Digite um Estado: \n");
-    scanf(" %c", &estado);
+    scanf("%s", &estadoA);
 
     printf("Digite o código da carta: \n");
     scanf("%s", &codeA);
@@ -41,13 +41,13 @@ int main(){
 
     // Pedidno para o programa fazer o calculo das médias de PIB per capita e Densidade Populacional
     densidadePA = (populacaoA / areakmA);
-    pibpcA = (pibA / populacaoA);  
+    pibpcA = (pibA * 1000000000 / populacaoA);  
     
     // Fazendo o calculo do super poder da carta 1
     superpoderA = populacaoA + pontoTA + areakmA + pibA + pibpcA;
     // Programa mostrando no terminal o resulato das informações adquiridas das carta 1
     printf("\n\nCarta 1:\n");
-    printf("Estado: %c\n", estado);
+    printf("Estado: %s\n", estadoA);
     printf("Código da Carta: %s\n", codeA);
     printf("Cidade: %s\n", cidadeA);
     printf("Populção: %d\n", populacaoA);
@@ -60,7 +60,7 @@ int main(){
     //Pedidndo para o usuário adicionar as informações da carta 2
     printf("Carta 2\n");
     printf("Digite um Estado: \n");
-    scanf(" %c", &estado);
+    scanf(" %s", &estadoB);
 
     printf("Digite o código da carta: \n");
     scanf("%s", &codeB);
@@ -82,13 +82,13 @@ int main(){
 
     // Pedidno para o programa fazer o calculo das médias de PIB per capita e Densidade Populacional Carta 2
     densidadePB = (populacaoB / areakmB);
-    pibpcB = (pibB / populacaoB);  
+    pibpcB = (pibB * 1000000000 / populacaoB);  
 
     // Fazendo o calculo do super poder da carta 2
     superpoderB = populacaoB + pontoTB + areakmB + pibB + pibpcB;
     // Programa mostrando no terminal o resulato das informações adquiridas das carta 2
     printf("\n\nCarta 2:\n");
-    printf("Estado: %c\n", estado);
+    printf("Estado: %s\n", estadoB);
     printf("Código da Carta: %s\n", codeB);
     printf("Cidade: %s\n", cidadeB);
     printf("Populção: %d\n", populacaoB);
@@ -98,18 +98,17 @@ int main(){
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePB);
     printf("PIB per capita: %.2f reais\n\n", pibpcB);
 
-    //Fazendo o calculo e apresentando qual carta ganhou
-    printf("\n\nComparação das cartas (1 para Carta 1 e 0 para Carta 2) \n");
-    printf("População = (%d)\n", (populacaoA > populacaoB));
-    printf("Areakm = (%d)\n", (areakmA > areakmB));
-    printf("PIB = (%d)\n", (pibA > pibB));
-    printf("Pontos Turísticos = (%d)\n", (pontoTA > pontoTB));
-    printf("Densidade Populacional = (%d)\n", (densidadePA < densidadePB));
-    printf("PIB per capita = (%d)\n", (pibpcA > pibpcB));
-    printf("Super Poder = (%d)\n\n", (superpoderA > superpoderB));
+    //Fazendo a comparação do atributo e apresentando qual carta ganhou
+    printf("Comparação de Cartas (Atributo População)\n");
+    printf("Carta 1: %s (%s): %u\n", cidadeA, estadoA, populacaoA);
+    printf("Carta 2: %s (%s): %u\n", cidadeB, estadoB, populacaoB);
 
-
-
+    if( populacaoA > populacaoB){
+        printf("Carta 1: %s venceu!\n", cidadeA);
+    } else{
+        printf("Carta 2: %s venceu!\n", cidadeA);
+    }
+    
     return 0;
 
 }
