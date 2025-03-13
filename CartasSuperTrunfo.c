@@ -9,6 +9,7 @@ int main(){
     char cidadeA[20], cidadeB[20];
     unsigned long int populacaoA, populacaoB;
     int pontoTA, pontoTB;
+    int atributocomparado;
     int resultado;
     float areakmA, areakmB;
     float pibA, pibB;
@@ -98,18 +99,87 @@ int main(){
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePB);
     printf("PIB per capita: %.2f reais\n\n", pibpcB);
 
-    //Fazendo a comparação do atributo e apresentando qual carta ganhou
-    printf("Comparação de Cartas (Atributo População)\n");
-    printf("Carta 1: %s (%s): %u\n", cidadeA, estadoA, populacaoA);
-    printf("Carta 2: %s (%s): %u\n", cidadeB, estadoB, populacaoB);
+    //Criando o menu interativo para o jogador escolher o atributo atilizado na comparação
+    printf("1. População\n");
+    printf("2. Áreakm²\n");
+    printf("3.PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Demográfica\n");
+    printf("Escolha qual o atributo a ser utilzado na comparação: ");
+    scanf("%d", &atributocomparado);
 
-    if( populacaoA > populacaoB){
-        printf("Carta 1: %s venceu!\n", cidadeA);
-    } else{
-        printf("Carta 2: %s venceu!\n", cidadeA);
-    }
+    //Fazendo a comparação do atributo e apresentando qual carta ganhou
+    printf("\n\nComparação de Cartas\n");
+    printf("Carta 1: %s (%s):\n", cidadeA, estadoA);
+    printf("Carta 2: %s (%s):\n", cidadeB, estadoB);
     
-    return 0;
+    //Calculando o resultado da compração com switch
+    switch (atributocomparado)
+    {
+    case 1:
+        printf("\nAtributo usado: População\n");
+        printf("Carta 1: %u\n", populacaoA);
+        printf("Carta 2: %u\n", populacaoB);
+        if(populacaoA == populacaoB){
+            printf("Empate!");
+        } else if (populacaoA > populacaoB){
+            printf("Carta 1 Venceu!");
+        } else {
+            printf("Carta 2 Venceu!");
+        }
+        break;
+        case 2:
+        printf("\nAtributo usado: Áreakm²\n");
+        printf("Carta 1: %f\n", areakmA);
+        printf("Carta 2: %f\n", areakmB);
+        if(areakmA == areakmB){
+            printf("Empate!");
+        } else if (areakmA > areakmB){
+            printf("Carta 1 Venceu!");
+        } else {
+            printf("Carta 2 Venceu!");
+        }
+        break;
+        case 3:
+        printf("\nAtributo usado: População\n");
+        printf("Carta 1: %f\n", pibA);
+        printf("Carta 2: %f\n", pibB);
+        if(pibA == pibB){
+            printf("Empate!");
+        } else if (pibA > pibB){
+            printf("Carta 1 Venceu!");
+        } else {
+            printf("Carta 2 Venceu!");
+        }
+        break;
+        case 4:
+        printf("\nAtributo usado: População\n");
+        printf("Carta 1: %d\n", pontoTA);
+        printf("Carta 2: %d\n", pontoTB);
+        if(pontoTA == pontoTB){
+            printf("Empate!");
+        } else if (pontoTA > pontoTB){
+            printf("Carta 1 Venceu!");
+        } else {
+            printf("Carta 2 Venceu!");
+        }
+        break;
+        case 5:
+        printf("\nAtributo usado: População\n");
+        printf("Carta 1: %f\n", densidadePA);
+        printf("Carta 2: %f\n", densidadePB);
+        if(densidadePA == densidadePB){
+            printf("Empate!");
+        } else if (densidadePA < densidadePB){
+            printf("Carta 1 Venceu!");
+        } else {
+            printf("Carta 2 Venceu!");
+        }
+        break;
+    default:
+        printf("Opção Inválida\n");
+        break;
+    }
 
 }
 
